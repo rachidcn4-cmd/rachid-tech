@@ -1,0 +1,1 @@
+export default function sitemap(){ const base='https://rachidtech.com'; return [{url:base,lastModified:new Date()},{url:base+'/store',lastModified:new Date()},{url:base+'/videos',lastModified:new Date()},{url:base+'/articles',lastModified:new Date()},{url:base+'/links',lastModified:new Date()}]}

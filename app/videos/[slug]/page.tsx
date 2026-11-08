@@ -1,0 +1,2 @@
+import {supabase} from '@/lib/supabase'
+export default async function VideoDetail({params}:{params:{slug:string}}){ const {data:v}=await supabase.from('videos').select('*').eq('slug',params.slug).single(); if(!v) return <p>غير موجود</p>; return(<div><h1>{v.title}</h1>{v.youtube_id? <iframe width="100%" height="480" src={`https://www.youtube.com/embed/${v.youtube_id}`} allowFullScreen style={{borderRadius:16}}/> : v.video_url? <video controls src={v.video_url} style={{width:'100%'}}/> : null}<p style={{marginTop:16}}>{v.description}</p></div>)}

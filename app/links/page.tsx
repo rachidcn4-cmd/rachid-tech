@@ -1,0 +1,2 @@
+import {supabase} from '@/lib/supabase'
+export default async function Links(){ const {data}=await supabase.from('links').select('*').order('created_at',{ascending:false}); return(<div><h1>🔗 LINKS</h1><div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(240px,1fr))',gap:16,marginTop:16}}>{(data||[]).map((l:any)=>(<div key={l.id} className="card"><b>{l.title}</b><p>{l.description}</p><a className="btn" href={l.url} target="_blank">فتح الرابط ↗</a></div>))}</div></div>)}

@@ -1,0 +1,2 @@
+import {supabase} from '@/lib/supabase'
+export default async function Article({params}:{params:{slug:string}}){ const {data:a}=await supabase.from('articles').select('*').eq('slug',params.slug).single(); if(!a) return <p>غير موجود</p>; return(<div><h1>{a.title}</h1>{a.cover_url&&<img src={a.cover_url} style={{width:'100%',borderRadius:16}}/>}<div style={{whiteSpace:'pre-wrap',marginTop:16,lineHeight:1.9}}>{a.content}</div><p style={{marginTop:16}}>🏷️ {(a.tags||[]).join(' • ')}</p></div>)}

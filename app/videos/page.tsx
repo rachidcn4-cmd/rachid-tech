@@ -1,0 +1,2 @@
+import {supabase} from '@/lib/supabase'
+export default async function Videos(){ const {data}=await supabase.from('videos').select('*').order('created_at',{ascending:false}); return(<div><h1>🎬 الفيديوهات</h1><div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(260px,1fr))',gap:16,marginTop:16}}>{(data||[]).map((v:any)=>(<a key={v.id} href={`/videos/${v.slug}`} className="card"><img src={v.thumbnail_url||''} style={{width:'100%',borderRadius:12}}/><b>{v.title}</b><p>👁️ {v.views}</p></a>))}</div></div>)}

@@ -1,0 +1,2 @@
+import {supabase} from '@/lib/supabase'
+export default async function Articles(){ const {data}=await supabase.from('articles').select('*').eq('status','published').order('created_at',{ascending:false}); return(<div><h1>📝 المقالات والشروحات</h1>{(data||[]).map((a:any)=>(<a key={a.id} href={`/articles/${a.slug}`} className="card" style={{display:'block',marginTop:12}}><b>{a.title}</b><p>{a.seo_description}</p></a>))}</div>)}
