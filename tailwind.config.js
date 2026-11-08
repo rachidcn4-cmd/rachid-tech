@@ -1,1 +1,1 @@
-module.exports={content:['./app/**/*.{ts,tsx}','./components/**/*.{ts,tsx}'],theme:{extend:{colors:{brand:'#7c3aed'}}},plugins:[]}
+module.exports={content:['./app/**/*.{ts,tsx}'],theme:{extend:{}},plugins:[]}
